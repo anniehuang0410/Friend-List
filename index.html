@@ -10,56 +10,49 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-  <div class="m-3">
+  <div class="mt-3 d-flex justify-content-center">
     <h2 id="page title">Annie's Friend List</h2>
   </div>
-  <div class="row" id="data-panel">
-    <div class="col-sm-2 m-3">
-      <div class="mb-3">
-        <div class="card">
-          <img src="https://robohash.org/totampossimusblanditiis.png?size=300x300&set=set1" class="card-img-top" alt="friend-avatar">
-          <div class="card-body">
-            <h5 class="card-title" id="friend-name">Friend's Name</h5>
-            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#friendInfoModal">More...</button>
+  <div class="container">
+    <div class="row" id="data-panel">
+      <!-- Render Movie List -->
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="friendInfoModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Name</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row modal-body">
+            <div class="col-sm-7">
+              <img src="" alt="" id="friend-modal-avatar">
+            </div>
+            <div class="col-sm-5">
+              <p id="friend-modal-gender"></p>
+              <p id="friend-modal-birthday-age"></p>
+              <p id="friend-modal-region"></p>
+              <p id="friend-modal-email"></p>
+              <p><em id="friend-modal-update"></em></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
+    <!-- Paginator -->
+    <nav aria-label="Page navigation" id="paginator">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </nav>
   </div>
-  <!-- Modal -->
-  <div class="modal" id="friendInfoModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Name</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="row modal-body">
-          <div class="col-sm-7">
-            <img src="" alt="" id="friend-modal-avatar">
-          </div>
-          <div class="col-sm-5">
-            <p id="friend-modal-gender"></p>
-            <p id="friend-modal-birthday-age"></p>
-            <p id="friend-modal-region"></p>
-            <p id="friend-modal-email"></p>
-            <p><em id="friend-modal-update"></em></p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Paginator -->
-  <nav aria-label="Page navigation" id="paginator">
-    <ul class="pagination justify-content-center">
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-    </ul>
-  </nav>
+
   <!-- Ajax -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- My JS -->
