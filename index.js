@@ -17,7 +17,7 @@ function renderFriendList(data) {
           <img src="${item.avatar}" class="img-thumbnail card-img-top" alt="friend-avatar">
           <div class="card-body row">
             <div class="container d-flex justify-content-center">
-             <h5 class="card-title" id="friend-name">${item.name + ' ' + item.surname}</h5> 
+             <h5 class="card-title mb-2" id="friend-name">${item.name + ' ' + item.surname}</h5> 
             </div>
             <div class="d-flex justify-content-around footer">
               <button id="show-info" href="#" class="btn btn-secondary " data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">more info</button>
