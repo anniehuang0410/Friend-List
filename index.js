@@ -19,7 +19,10 @@ function renderFriendList(data) {
             <div class="container d-flex justify-content-center">
              <h5 class="card-title" id="friend-name">${item.name + ' ' + item.surname}</h5> 
             </div>
-            <button id="show-info" class="btn btn-secondary text-align-center" data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">click for more info</button>
+            <div class="d-flex justify-content-around footer">
+              <button id="show-info" href="#" class="btn btn-secondary " data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">more info</button>
+              <button id="add-as-close-friend" href="#" class="btn btn-primary" data-id="${item.id}">+</button>
+            </div>
           </div>
         </div>
       </div>
