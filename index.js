@@ -2,8 +2,11 @@ const BASE_URL = 'https://user-list.alphacamp.io'
 const INDEX_URL = BASE_URL + '/api/v1/users'
 
 const dataPanel = document.querySelector('#data-panel')
+const searchInput = document.querySelector('#search-input')
+const searchButton = document.querySelector('#search-button')
 
 const friends = []
+
 
 // 函式：呼叫朋友清單
 function renderFriendList(data) {
@@ -33,6 +36,21 @@ function renderFriendList(data) {
   dataPanel.innerHTML = rawHTML
 }
 
+function searchMyFriend() {
+  const input = searchInput.value.trim().toLowerCase()
+  let filteredFriend = []
+  
+  filteredFriend = friends.filter((friend) => friend.name.toLowerCase().includes(input) || friend.surname.toLowerCase().includes(input))
+
+  if(filteredFriend.length === 0){
+    alert(`Cannot find the search result with keyword '${input}'`)
+  }
+
+  const filterData = filteredFriend.length === 0 ? friends : filteredFriend
+
+  renderFriendList(filterData)
+}
+
 function showFriendDetail(id) {
   const ModalName = document.querySelector('#friend-modal-name')
   const ModalAvatar = document.querySelector('#friend-modal-avatar')  
@@ -59,10 +77,24 @@ function showFriendDetail(id) {
   })
 }
 
-// friend info 監聽器
+// friend info modal 監聽器
 dataPanel.addEventListener('click', function onPanelClick(event){
   if (event.target.matches('#show-info')){
     showFriendDetail(Number(event.target.dataset.id))
+  }
+})
+
+// search button 監聽器
+searchButton.addEventListener('click', function onSearchButtonClicked(event){
+  event.preventDefault()
+  searchMyFriend()
+})
+
+// search input enter 監聽器
+searchInput.addEventListener('keydown', function onSearchInputEntered(event){
+  if (event.key === 'Enter') {
+    event.preventDefault()
+    searchMyFriend()
   }
 })
 
