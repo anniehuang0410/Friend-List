@@ -1,11 +1,14 @@
 const BASE_URL = 'https://user-list.alphacamp.io'
 const INDEX_URL = BASE_URL + '/api/v1/users'
+const FRIEND_PER_PAGE = 10
 
 const dataPanel = document.querySelector('#data-panel')
 const searchInput = document.querySelector('#search-input')
 const searchButton = document.querySelector('#search-button')
+const paginator = document.querySelector('#paginator')
 
 const friends = []
+let filteredFriend = []
 
 // 呼叫朋友清單
 function renderFriendList(data) {
@@ -35,6 +38,30 @@ function renderFriendList(data) {
   dataPanel.innerHTML = rawHTML
 }
 
+// 計算分頁數量
+function renderPaginator(number) {
+  let numberOfPage = Math.ceil(number / FRIEND_PER_PAGE)
+  let rawHTML = ''
+  
+  for (let pageNum = 1; pageNum <= numberOfPage; pageNum++) {
+    rawHTML += `
+    <li class="page-item"><a class="page-link" href="#" data-page="${pageNum}">${pageNum}</a></li>
+  `
+
+  paginator.innerHTML = rawHTML
+  }
+}
+
+// 分頁功能啟動
+function slicePages(pageNumber) {
+  const startIndex = (pageNumber - 1) * FRIEND_PER_PAGE
+  const endIndex = startIndex + FRIEND_PER_PAGE
+
+  const filterData = filteredFriend.length ? filteredFriend : friends
+
+  return filterData.slice(startIndex, endIndex)
+}
+
 // 加入摯友功能
 function addToCloseFriendList(id) {
   const list = JSON.parse(localStorage.getItem('closeFriend')) || []
@@ -49,18 +76,18 @@ function addToCloseFriendList(id) {
 
 // 搜尋關鍵字功能
 function searchMyFriend() {
-  const input = searchInput.value.trim().toLowerCase()
-  let filteredFriend = []
+  const input = searchInput.value.trim().toLowerCase() 
   
   filteredFriend = friends.filter((friend) => friend.name.toLowerCase().includes(input) || friend.surname.toLowerCase().includes(input))
 
   if(filteredFriend.length === 0){
     alert(`Cannot find the search result with keyword '${input}'`)
   }
+  
+  const filterData = filteredFriend.length ? filteredFriend : friends
 
-  const filterData = filteredFriend.length === 0 ? friends : filteredFriend
-
-  renderFriendList(filterData)
+  renderPaginator(filterData.length)
+  renderFriendList(slicePages(1))
 }
 
 // more 按鈕功能：顯示更多朋友資訊
@@ -89,6 +116,13 @@ function showFriendDetail(id) {
     ModalUpdate.innerText = 'Last updated date: ' + data.updated_at.slice(0, data.updated_at.indexOf('T'))
   })
 }
+
+// paginator 監聽器
+paginator.addEventListener('click', function onPaginatorClicked(event){
+  const pageNumber = Number(event.target.dataset.page)
+  
+  renderFriendList(slicePages(pageNumber))
+})
 
 // more info & add to close friend 監聽器
 dataPanel.addEventListener('click', function onPanelClick(event){
@@ -119,5 +153,6 @@ searchInput.addEventListener('keydown', function onSearchInputEntered(event){
 axios.get(INDEX_URL)
 .then(response => {
   friends.push(...response.data.results)
-  renderFriendList(friends)
+  renderFriendList(slicePages(1))
+  renderPaginator(friends.length)
 })
