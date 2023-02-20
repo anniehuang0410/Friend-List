@@ -42,6 +42,108 @@
   </nav>
   <!-- Friend List -->
   <div class="container">
+    <!-- Title + nav -->
+    <div id="title-container">
+      <div>
+        <h1 class="nav-font fw-bold text-center my-5">Select a country and start exploring!</h1>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button"
+              aria-expanded="false">Asia</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item fw-bold" href="#">East Asia</a></li>
+              <li><a class="dropdown-item" href="#" id="china">China</a></li>
+              <li><a class="dropdown-item" href="#" id="japan">Japan</a></li>
+              <li><a class="dropdown-item" href="#" id="korea">Korea</a></li>
+              <li><a class="dropdown-item" href="#" id="russia">Russia</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">South East Asia</a></li>
+              <li><a class="dropdown-item" href="#" id="vietnam">Vietnam</a></li>
+              <li><a class="dropdown-item" href="#" id="nepal">Nepal</a></li>
+              <li><a class="dropdown-item" href="#" id="india">India</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">Central Asia</a></li>
+              <li><a class="dropdown-item" href="#" id="iran">Iran</a></li>
+              <li><a class="dropdown-item" href="#" id="israel">Israel</a></li>
+              <li><a class="dropdown-item" href="#" id="pakistan">Pakistan</a></li>
+              <li><a class="dropdown-item" href="#" id="kyrgyz">Kyrgyz Republic</a></li>
+              <li><a class="dropdown-item" href="#" id="turkey">Turkey</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Europe</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item fw-bold" href="#">Eastern Europe</a></li>
+              <li><a class="dropdown-item" href="#" id="romania">Romania</a></li>
+              <li><a class="dropdown-item" href="#" id="estonia">Estonia</a></li>
+              <li><a class="dropdown-item" href="#" id="slovakia">Slovakia</a></li>
+              <li><a class="dropdown-item" href="#" id="hungary">Hungary</a></li>
+              <li><a class="dropdown-item" href="#" id="poland">Poland</a></li>
+              <li><a class="dropdown-item" href="#" id="bosnia">Bosnia and Herzegovina</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">Western Europe</a></li>
+              <li><a class="dropdown-item" href="#" id="france">France</a></li>
+              <li><a class="dropdown-item" href="#" id="belgium">Belgium</a></li>
+              <li><a class="dropdown-item" href="#" id="england">England</a></li>
+              <li><a class="dropdown-item" href="#" id="germany">Germany</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">Northern Europe</a></li>
+              <li><a class="dropdown-item" href="#" id="netherlands">Netherlands</a></li>
+              <li><a class="dropdown-item" href="#" id="finland">Finland</a></li>
+              <li><a class="dropdown-item" href="#" id="norway">Norway</a></li>
+              <li><a class="dropdown-item" href="#" id="denmark">Denmark</a></li>
+              <li><a class="dropdown-item" href="#" id="germany">Germany</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">Southern Europe</a></li>
+              <li><a class="dropdown-item" href="#" id="spain">Spain</a></li>
+              <li><a class="dropdown-item" href="#" id="italy">Italy</a></li>
+              <li><a class="dropdown-item" href="#" id="greece">Greece</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Americas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item fw-bold" href="#">Northern America</a></li>
+              <li><a class="dropdown-item" href="#" id="usa">United States</a></li>
+              <li><a class="dropdown-item" href="#" id="canada">Canada</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item fw-bold" href="#">Southern America</a></li>
+              <li><a class="dropdown-item" href="#" id="mexico">Mexico</a></li>
+              <li><a class="dropdown-item" href="#" id="argentina">Argentina</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Africa</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="nigeria">Nigeria</a></li>
+              <li><a class="dropdown-item" href="#" id="egypt">Egypt</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button"
+              aria-expanded="false">Oceania</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="nz">New Zealand</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="row" id="data-panel">
       <!-- Render Friend List -->
     </div>
@@ -81,6 +183,8 @@
 
   <!-- Ajax -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Font Awesome JS -->
+  <script src="https://kit.fontawesome.com/5ad8da4571.js" crossorigin="anonymous"></script>
   <!-- My JS -->
   <script src="/index.js"></script>
   <!-- Bootstrap JS-->

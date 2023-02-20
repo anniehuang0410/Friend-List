@@ -18,11 +18,13 @@ function renderFriendList(data) {
     rawHTML += `
     <div class="col-sm-2 m-3">
       <div class="mb-3">
-        <div class="card p-2">
-          <img src="${item.avatar}" class="img-thumbnail card-img-top" alt="friend-avatar">
+        <div class="card p-2 border-0">
+          <img src="${item.avatar}" class="img-thumbnail card-img-top rounded-circle border-0" alt="friend-avatar">
           <div class="card-body row">
             <div class="container d-flex justify-content-center">
-             <h5 class="card-title mb-2" id="friend-name">${item.name + ' ' + item.surname}</h5> 
+             <h5 class="card-title mb-2" id="friend-name">${item.name}
+             <i class="fa-solid fa-heart-circle-plus"></i>
+             </h5> 
             </div>
             <div class="d-flex justify-content-around footer">
               <button id="show-info" href="#" class="btn btn-secondary " data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">more info</button>
@@ -36,6 +38,21 @@ function renderFriendList(data) {
   })
 
   dataPanel.innerHTML = rawHTML
+}
+
+// 尋找國家
+function findCountries(data) {
+  const countryList = []
+
+  for(let profile = 0; profile < data.length; profile++) {
+    const existedCountry = countryList.find(country => country === data[profile].region)
+    
+    if(!existedCountry){
+      countryList.push(data[profile].region)
+    } 
+  }
+
+  console.log(countryList)
 }
 
 // 計算分頁數量
@@ -155,4 +172,5 @@ axios.get(INDEX_URL)
   friends.push(...response.data.results)
   renderFriendList(slicePages(1))
   renderPaginator(friends.length)
+  findCountries(friends)
 })
