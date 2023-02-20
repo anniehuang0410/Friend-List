@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends Around the World</title>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/FAW.css">
+  <!--Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Unbounded:wght@300;600&display=swap"
+  rel="stylesheet">
+</head>
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand nav-font fw-bold mx-2" href="/FAW.html">F.A.W</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/closeFriend.html">Close Friend</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- title -->
+  <div class="title justify-content-center m-5 nav-font">
+    <h1 class="text-center">Friends Around the World</h1>
+    <h5 class="text-center">Meet people around the world anywhere anytime in a simple click.</h4>
+  </div>
+  <!-- Slides -->
+  <div class="friend-slides mx-5 my-3">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="friends-image">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.pexels.com/photos/3228714/pexels-photo-3228714.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="friends-image">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.pexels.com/photos/1154189/pexels-photo-1154189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="friends-image">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Recommend comments -->
+  <div class="comments mx-5 my-3 row justify-content-between">
+    <div class="card mb-3 col-md-3 p-2" style="width: 450px;">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center">
+          <img src="https://api.dicebear.com/5.x/micah/svg?seed=Cali" class="img-fluid rounded-start" alt="Cali-avatar">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-3">Cali</h5>
+            <p class="card-text">Thanks FAW giving me a chance to meet people from more than 10 different countries by traveling nowhere!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 col-md-3 p-2" style="width: 450px;">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center">
+          <img src="https://api.dicebear.com/5.x/micah/svg?seed=Buster" class="img-fluid rounded-start" alt="Buster-avatar">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-3">Buster</h5>
+            <p class="card-text">Meet locals on FAW and explore the new place with them is my way to travel around the world.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 col-md-3 p-2" style="width: 450px;">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center">
+          <img src="https://api.dicebear.com/5.x/micah/svg?seed=Bubba" class="img-fluid rounded-start" alt="Bubba-avatar">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-3">Bubba</h5>
+            <p class="card-text">You can not only meet friends but find your partner from the other side of the earth on FAW(wink)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start button -->
+  <div class="justify-content-center">
+    <h2 class="go-to-index nav-font text-center">Let's start the chat and rock the world!
+      <a href="/index.html"><i class="fa-solid fa-arrow-up-right-from-square m-2"></i></a>
+    </h2>
+  </div>
+  <!-- Font Awesome JS -->
+  <script src="https://kit.fontawesome.com/5ad8da4571.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
