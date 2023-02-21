@@ -23,14 +23,14 @@
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand nav-font fw-bold mx-2" href="/FAW.html">F.A.W</a>
+      <div class="collapse navbar-collapse nav-font" id="navbarTogglerDemo01">
+        <a class="navbar-brand fw-bold mx-4" href="/FAW.html">F.A.W</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/closeFriend.html">Close Friend</a>
+            <a class="nav-link" href="/closeFriend.html">Selected Friend</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -46,16 +46,16 @@
     <div id="title-container">
       <div>
         <h1 class="nav-font fw-bold text-center my-5">Select a country and start exploring!</h1>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="country-filter-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">All</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button"
               aria-expanded="false">Asia</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item fw-bold" href="#">East Asia</a></li>
-              <li><a class="dropdown-item" href="#" id="china">China</a></li>
+              <li><a class="dropdown-item dropdown-country" href="#" id="china">China</a></li>
               <li><a class="dropdown-item" href="#" id="japan">Japan</a></li>
               <li><a class="dropdown-item" href="#" id="korea">Korea</a></li>
               <li><a class="dropdown-item" href="#" id="russia">Russia</a></li>
@@ -152,7 +152,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title fs-4" id="friend-modal-name"></h5>
+            <h5 class="modal-title fs-4 nav-font" id="friend-modal-name"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="row modal-body">

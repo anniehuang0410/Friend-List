@@ -6,6 +6,7 @@ const dataPanel = document.querySelector('#data-panel')
 const searchInput = document.querySelector('#search-input')
 const searchButton = document.querySelector('#search-button')
 const paginator = document.querySelector('#paginator')
+const filterNav = document.querySelector('#country-filter-nav')
 
 const friends = []
 let filteredFriend = []
@@ -18,17 +19,13 @@ function renderFriendList(data) {
     rawHTML += `
     <div class="col-sm-2 m-3">
       <div class="mb-3">
-        <div class="card p-2 border-0">
-          <img src="${item.avatar}" class="img-thumbnail card-img-top rounded-circle border-0" alt="friend-avatar">
+        <div class="card border-0">
+          <img src="${item.avatar}" class="img-thumbnail card-img-top rounded-circle border-0" alt="friend-avatar" id="show-info" data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">
           <div class="card-body row">
             <div class="container d-flex justify-content-center">
-             <h5 class="card-title mb-2" id="friend-name">${item.name}
-             <i class="fa-solid fa-heart-circle-plus"></i>
+             <h5 class="card-title mb-2 nav-font" id="friend-name">${item.name}
+             <i class="fa-solid fa-heart mx-2" id="add-button" data-id="${item.id}"></i>
              </h5> 
-            </div>
-            <div class="d-flex justify-content-around footer">
-              <button id="show-info" href="#" class="btn btn-secondary " data-bs-toggle="modal" data-bs-target="#friendInfoModal" data-id="${item.id}">more info</button>
-              <button id="add-button" href="#" class="btn btn-primary" data-id="${item.id}">+</button>
             </div>
           </div>
         </div>
@@ -38,6 +35,17 @@ function renderFriendList(data) {
   })
 
   dataPanel.innerHTML = rawHTML
+}
+
+// 依國家檢索
+function filteredByCountry(country){
+  
+  filteredFriend = friends.filter(friend => friend.region.toLowerCase().includes(country))
+  
+  if(filteredFriend.length > 0){
+    renderFriendList(slicePages(1))
+    renderPaginator(filteredFriend.length)
+  }
 }
 
 // 尋找國家
@@ -62,7 +70,7 @@ function renderPaginator(number) {
   
   for (let pageNum = 1; pageNum <= numberOfPage; pageNum++) {
     rawHTML += `
-    <li class="page-item"><a class="page-link" href="#" data-page="${pageNum}">${pageNum}</a></li>
+    <li class="page-item"><a class="page-link text-secondary" href="#" data-page="${pageNum}">${pageNum}</a></li>
   `
 
   paginator.innerHTML = rawHTML
@@ -133,6 +141,19 @@ function showFriendDetail(id) {
     ModalUpdate.innerText = 'Last updated date: ' + data.updated_at.slice(0, data.updated_at.indexOf('T'))
   })
 }
+
+// filterNav 監聽器
+filterNav.addEventListener('click', function onFilterNavClicked(event){
+  const clickedCountry = event.target.textContent.toLowerCase()
+  
+  if(clickedCountry === 'all'){
+    filteredFriend = []
+    renderFriendList(slicePages(1))
+    renderPaginator(friends.length)
+  } else {
+    filteredByCountry(clickedCountry)
+  }
+})
 
 // paginator 監聽器
 paginator.addEventListener('click', function onPaginatorClicked(event){
